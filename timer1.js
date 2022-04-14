@@ -1,19 +1,43 @@
 // Make timer beat at: whatever integers user inputs.
 // E.g. node timer1.js 10 3 5 15 9
 // Computer will beep at 3, 5, 9, 10, 15 seconds
+// process.stdout.write("\x07");
 
+// Store user's input into a variable and sort it.
+// Store sorted input (ascending order) into a variable
 let userInput = process.argv.slice(2);
+sortedInput = userInput.sort(function(a, b) {
+  return a-b;
+});
+console.log(sortedInput);
+
+// Loop through each item in the array. The computer will beep according to the
+// time integer listed
 
 const timer = function() {
-  sortedArr = userInput.sort()
-    console.log(sortedArr);
+  let delayInSeconds = 1000;
+  for (let i = 0; i < sortedInput.length; i++) {
+   delay = delayInSeconds + sortedInput[i];
+   setTimeout(() => {
+     process.stdout.write("\x07")
+   }, delay);
   };
+};
 
-  // for (let i = 2; i < sortedArr.length; i++) {
-  //   setTimeout(() => {
-  //    process.stdout.write("\x07");
-  //   }, sortedArr[i]);
-  // }
+// Make the computer beep three times, with one second apart:
+// setTimeout(() => {
+//   process.stdout.write("\x07");
+// }, 1000);
+
+// setTimeout(() => {
+//   process.stdout.write("\x07");
+// }, 2000);
+
+// setTimeout(() => {
+//   process.stdout.write("\x07");
+// }, 3000);
+
+// process.stdout.write("\x07");
 
 
 
