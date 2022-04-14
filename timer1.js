@@ -17,12 +17,13 @@ console.log(sortedInput);
 const timer = function() {
   let delayInSeconds = 1000;
   for (let i = 0; i < sortedInput.length; i++) {
-   delay = delayInSeconds + sortedInput[i];
+   delay = delayInSeconds * sortedInput[i];
    setTimeout(() => {
      process.stdout.write("\x07")
    }, delay);
   };
 };
+timer();
 
 // Make the computer beep three times, with one second apart:
 // setTimeout(() => {
