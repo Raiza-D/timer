@@ -6,18 +6,18 @@ Use process.stdout.write("\x07"); to make computer beep. */
 
 
 let userInput = process.argv.slice(2);
-sortedInput = userInput.sort(function(a, b) {
-  return a-b;
+let sortedInput = userInput.sort(function(a, b) {
+  return a - b;
 });
 
 const timer = function() {
-  let delayInSeconds = 1000;
+  let delayInSeconds = 0;
   for (let i = 0; i < sortedInput.length; i++) {
-    if (sortedInput[i] !== NaN && sortedInput[i] > 0) {
-      delay = delayInSeconds * sortedInput[i];
+    if ((!isNaN(sortedInput[i])) && sortedInput[i] > 0) {
+      delayInSeconds = 1000 * sortedInput[i];
       setTimeout(() => {
         process.stdout.write("\x07");
-      }, delay);
+      }, delayInSeconds);
     }
   }
 };
